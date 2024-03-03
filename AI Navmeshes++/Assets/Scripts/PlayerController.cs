@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         if (inRange && atDestination)
         {
             m_agent.SetDestination(m_target.transform.position);
+            m_character.Face(m_target.transform.position);
             m_character.HandleAttack(inRange);
         }
         else if (m_agent.remainingDistance > m_agent.stoppingDistance)

@@ -47,8 +47,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
+		public void Face (Vector3 position)
+		{
+			Vector3 move = position - transform.position;
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+            m_TurnAmount = Mathf.Atan2(move.x, move.z);
+
+						m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
+
+        }
+
+        public void Move(Vector3 move, bool crouch, bool jump)
 		{
 
 			// convert the world relative moveInput vector into a local-relative

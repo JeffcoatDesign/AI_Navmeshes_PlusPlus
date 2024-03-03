@@ -62,6 +62,7 @@ public class EnemyController : MonoBehaviour
 
         if (inRange)
         {
+            m_character.Face(m_player.transform.position);
             m_character.HandleAttack(inRange);
         }
         else if (m_agent.remainingDistance > m_agent.stoppingDistance)
